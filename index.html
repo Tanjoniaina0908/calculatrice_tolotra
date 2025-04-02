@@ -75,10 +75,22 @@
         <input type="text" id="display" readonly>
         <!-- afficher dans le navigateur -->
         <div class="buttons">
+            <button onclick="calculerCarre()">x²</button>
+            <button onclick="appendToDisplay('**')">xʸ</button>
             <button onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('/')" class="operator">/</button>
-            <button onclick="appendToDisplay('*')" class="operator">*</button>
             <button onclick="deleteLast()">⌫</button>
+
+            <button onclick="appendToDisplay('Math.sqrt(')">√</button>
+            <button onclick="appendToDisplay('Math.sin(')">sin</button>
+            <button onclick="appendToDisplay('Math.cos(')">cos</button>
+            <button onclick="appendToDisplay('/')" class="operator">/</button>
+
+
+            <button onclick="appendToDisplay('Math.tan(')">tan</button>
+            <button onclick="calculateLn()">ln(x)</button>
+            <button onclick="calculateExp()">exp(x)</button>
+            <button onclick="appendToDisplay('*')" class="operator">*</button>
+           
             
             <button onclick="appendToDisplay('7')">7</button>
             <button onclick="appendToDisplay('8')">8</button>
@@ -97,15 +109,11 @@
             
             <button onclick="appendToDisplay('0')">0</button>
             <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculateLn()">ln(x)</button>
-            <button onclick="calculateExp()">exp(x)</button>
-            <button onclick="appendToDisplay('^')">^</button>
-            <button onclick="appendToDisplay('Math.sqrt(')">√</button>
-            <button onclick="appendToDisplay('Math.sin(')">sin</button>
-            <button onclick="appendToDisplay('Math.cos(')">cos</button>
+            
+           
             <button onclick="appendToDisplay('(')">(</button>
             <button onclick="appendToDisplay(')')">)</button>
-
+            <button onclick="appendToDisplay('Math.PI')">π</button>
         </div>
         <p id="resultat"></p>
     </div>
@@ -145,13 +153,30 @@
              display.value += "Math.exp("; // Ajoute "Math.exp(" pour permettre un calcul correct
 
          display.value = Math.exp(value); // Exponentielle e^x
+
         }
 
+        function calculerCarre() { 
+             let display = document.getElementById("display"); // Récupère l'élément d'affichage
+             let valeur = parseFloat(display.value); // Convertit en nombre
+    
+             if (!isNaN(valeur)) {
+                  display.value = valeur ** 2; // Élève au carré
+             } else {
+                  display.value = "Erreur"; // Gère les erreurs si l'entrée est invalide
+             }
+        }
+
+
         function calculate() {
+            let expression = document.getElementById("display").value;
+            
+             // Remplace le factoriel par la fonction qui effectue le calcul
+             
             try {
                 let display = document.getElementById('display');
-                // display.value = eval(display.value);
-                let expression = display.value.replace(/\^/g, '***'); // Remplace ^ par **
+                display.value = eval(display.value);
+                
                 let result = Function('"use strict"; return (' + display.value + ')')();
                  display.value = result; 
                 // on accpter 2*3+4
