@@ -18,51 +18,63 @@
             height: 100vh;
             /*definit la hauteur */
             margin: 0;
-            background-color: #f0f0f0;
-            /* background-color: black; */
-            /* coloré les font*/
+            /* background-color: #f0f0f0; */
+            background-color: #1a1717;
         }
         .calculator {
-            background-color: white;
+            /* background-color: white; */
+            background-color: rgb(7, 7, 7);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 20px;
             display: flex;
             flex-direction: column;
+            border: 2px solid white;
+            /* border: 2px solid rgb(24, 22, 22); */
         }
         input {
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 18px;
+            margin-bottom: 15px;
+            padding: 50px;
+            font-size: 10px;
         }
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             /* ce qui fait la colone en '4' */
-            gap: 10px;
-            /* ajouter de l' espace */
+            gap: 12px;
+            
+         
         }
         button {
             padding: 10px;
             font-size: 18px;
             border: none;
-            background-color: #e0e0e0;
+            background-color:rgba(112, 197, 253, 0.562);
+            /* background-color: #e0e0e0; */
             /* background-color: aqua; */
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 70%;
         }
         button:hover {
             background-color: #d0d0d0;
+            /* background-color: #c41e1e; */
         }
         .operator {
-            background-color: #f0ad4e;
+            background-color: #f3aedc;
         }
         .operator:hover {
-            background-color: #ec971f;
+            /* background-color: #ec971f; */
+             background-color: #f3aedc60;
         }
         #equals {
-            background-color: #5cb85c;
+            /* background-color: #5cb85c; */
+            background-color: #91ebdfaf;
             color: white;
+
+            grid-row: span 2; /* Fait en sorte que le bouton "=" prenne deux lignes */ 
+            height: 100%; /* Optionnel : pour remplir toute la hauteur de la ligne */
+            border: none; /* Supprime la bordure */
+            border-radius: 5px; /* Arrondi légèrement */
         }
         #equals:hover {
             background-color: #449d44;
